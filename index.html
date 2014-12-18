@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSVP</title>
+</head>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<style>
+    .smaller {
+      width:600px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .margin-top-40 {
+      margin-top:40px;
+    }
+
+    .bold {
+      font-weight:bold;
+    }
+
+    .margin-top-10 {
+      margin-top:10px;
+    }
+
+     .margin-top-20 {
+      margin-top:20px;
+    }
+
+    .txt-center {
+      text-align:center;
+    }
+
+    .txt-right {
+      text-align:right;
+    }
+  </style>
+  <body>
+
+  <div id="container" class="container"></div>
+
+<!-- User Login View -->
+
+<!-- <div data-role="page" id="user-login"> -->
+
+<script type="x-handlebars-template" id="login-template">
+  <div data-role="header" data-theme="b">
+
+    <h1>Secret Events Login</h1>
+  </div>
+
+  <div data-role="content">
+
+          <h3>Login Here</h3>
+            <ul data-role="listview"  data-inset="true">
+
+              <li><input id="login_username" type="text" placeholder="Username"/></li>
+              <li><input id="login_password" type="text" placeholder="Password"/></li>
+              <li>Look up your event with a CODE</li>
+              <li><input type="text" placeholder="Past your code here"/></li>
+
+              <li> <a href="#" id = "login_submit" data-role="button" data-icon = "carat-r" data-iconpos = "right" data-theme="b">Login</a></li>
+
+
+            </ul>
+
+           <h3>Are you a New User?</h3>
+           <a href="#newUser"  data-role ="button" data-icon = "user" data-iconpos = "right">Sign Up - if you dare!</a>
+    </div>
+  <div data-role="footer" data-theme="b">
+
+    <h1>The fun is about to begin...</h1>
+  </div>
+
+  </script>
+<!-- </div>  -->
+
+<!-- close User Login-->
+
+<!-- New User View -->
+<script type="x-handlebars-template" id="new-user-template">
+
+  <div data-role="header" data-theme="b">
+    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h2>New User Sign Up </h2>
+  </div>
+  <div data-role="content">
+    <div class="bold">
+      First Name
+    </div>
+    <div class="margin-top-20">
+      <input name ="firstname" id="new-firstname" type="text" placeholder="First Name" />
+    </div>
+    <div class="margin-top-20 bold">
+       Last Name
+    </div>
+    <div class="margin-top-20">
+      <input name = "lastname" id="new-lastname" type="text" placeholder=" Last Name" />
+    </div>
+    <div class="margin-top-20 bold">
+      Email
+    </div>
+    <div class="margin-top-20">
+      <input name = "email" id="new-email" type="email" placeholder="Email" />
+    </div>
+    <div class="margin-top-20 bold">
+      Username
+    </div>
+    <div class="margin-top-20">
+      <input name ="username" id="new-username" type="text" placeholder="Username" />
+    </div>
+    <div class="margin-top-20 bold">
+      Password
+    </div>
+    <div class="margin-top-20">
+      <input name= "password" id="new-password" type="text"  placeholder="Password" />
+    </div>
+    <div class="margin-top-20 bold">
+      Picture URL (optional)
+    </div>
+    <div class="margin-top-20">
+      <input name ="picture_url" id="new-picture" type="text" placeholder="Picture" />
+    </div>
+
+    <div class="margin-top-20">
+
+
+      <a href="#allEvents" id = "submit_newUser" data-role="button" data-theme="b" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">I am ready to submit...</a>
+
+    </div>
+  </div>
+
+</script>
+
+<!-- close New User View -->
+
+<!-- Find Events View -->
+
+<script type="x-handlebars-template" id="find-events-template">
+  <div data-role="header" data-theme="b">
+    <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h1>Find Your Event!</h1>
+  </div>
+
+  <div data-role="content">
+          <h3>Look up your event with a CODE</h3>
+           <ul data-role="listview"  data-inset="true">
+
+              <li><input type="text" placeholder="Past your code here"/></li>
+              <li> <a href="#event_coded_page" data-role ="button" id = "submit-find-event" data-icon = "carat-r" data-iconpos = "right">Submit Code</a></li>
+
+
+            </ul>
+
+            <h3>Look for events with the following keywords (within 30 mile radius):</h3>
+            <ul data-role="listview"  data-inset="true">
+             <li><input type="text" placeholder="Separate your words with SPACES "/></li>
+              <li> <a href="#event-list" data-role ="button" id="submit-find-event" data-icon = "carat-r" data-iconpos = "right">Submit Search for events</a></li>
+             </ul>
+
+
+            <h3>Look for events with the following keywords (in another city):</h3>
+            <ul data-role="listview"  data-inset="true">
+            <li class="ui-field-contain">
+              <label for="select-choice-1" class="select">Events in another city</label>
+              <select name="select-choice-1" id="select-choice-1">
+                <option value="newyork">San Francisco</option>
+                <option value="newyork">New York</option>
+                <option value="chicago">Chicago</option>
+                <option value="miami">Miami</option>
+                <option value="losangeles">Los Angeles</option>
+              </select>
+            </li>
+
+            <li><input type="text" placeholder="Separate your words with SPACES "/></li>
+              <li> <a href="#event-list" data-role ="button" id= "submit-find-event" data-icon = "carat-r" data-iconpos = "right">Submit Search for events</a></li>
+             </ul>
+    </div>
+
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#show_profile/1" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</script>
+
+<!-- close Find Events View -->
+
+<!--Event List Page-->
+<script type="x-handlebars-template" id="event-list-template">
+
+
+<div id="event-list">
+  <div data-role="header" data-theme="b">
+    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h1>Event List</h1>
+  </div>
+   {{#each allEvents}}
+  <div data-role="content">
+
+    <ul id="event-list-items" data-role="listview">
+      <li>
+        <a href="#show_event/{{attributes.id}}" data-icon="carat-r">
+          <img src="{{attributes.event_picture_url}}">
+          <h3> {{attributes.title}} </h3>
+          <p>{{attributes.public_description}}</p>
+        </a>
+      </li>
+    </ul
+
+  </div>
+   {{/each}}
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#show_profile/1" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</script>
+<!--/Event List Page-->
+
+<!--RSVP Guest List Page-->
+<!-- div data-role="page" id="rsvpd-guests">
+  <div data-role="header" data-theme="b">
+    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h1>RSVP'd Guest List</h1>
+  </div>
+  <div data-role="content">
+    <ul id="event-list-items" data-role="listview">
+      <li>
+          <img src="images/billgates.jpg">
+          <h3> Name of User </h3>
+      </li>
+
+       <li>
+          <img src="images/markzuckerberg.jpg">
+          <h3> Name of User </h3>
+      </li>
+       <li>
+          <img src="images/pamelaanderson.jpg">
+          <h3> Name of User </h3>
+      </li>
+
+       <li>
+          <img src="images/scarlettjo.jpg">
+          <h3> Name of User </h3>
+      </li>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#event-list" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#create-event" data-icon="plus">Create Event</a></li>
+        <li><a href="#user-profile" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+<!--close RSVP Guest List Page-->
+
+<!--Wants Invite List Page-->
+<!-- <div data-role="page" id="wants-invite">
+  <div data-role="header" data-theme="b">
+    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h1>Wants an Invite</h1>
+  </div>
+  <div data-role="content">
+    <ul id="event-list-items" data-role="listview">
+      <li>
+          <img src="images/obama.jpg">
+          <h3> Name of User </h3>
+      </li>
+
+       <li>
+          <img src="images/michelle.jpg">
+          <h3> Name of User </h3>
+      </li>
+       <li>
+          <img src="images/jason.jpg">
+          <h3> Name of User </h3>
+      </li>
+
+       <li>
+          <img src="images/michael.jpg">
+          <h3> Name of User </h3>
+      </li>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#event-list" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#create-event" data-icon="plus">Create Event</a></li>
+        <li><a href="#user-profile" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+<!--close Wants Invite List Page-->
+
+<!-- Private Individual Event-Code View -->
+
+<script type="x-handlebars-template" id="individual-event-template">
+  <div data-role="header" data-theme="b">
+    <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h1>Yes, please come....</h1>
+  </div>
+
+
+    <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <h3> Event: {{eventInfo.attributes.title}}</h3>
+        <div class="ui-block-a"><img src="{{eventInfo.attributes.event_picture_url}}" style = width: 100px, height = 100px/></div>
+        <div class="ui-block-b"><strong>Location: {{eventInfo.attributes.location}}</div>
+      </div>
+  </div>
+
+  <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <div class="ui-block-a"><strong> Save the date: {{eventInfo.attributes.date}}</strong> </div>
+        <div class="ui-block-b"><strong>Time: {{eventInfo.attributes.time}}</strong> </div>
+      </div>
+  </div>
+    <div role="main" class="ui-content">
+      <h3> Description: </h3>
+      <p> {{eventInfo.attributes.private_description}} </p>
+
+    </div>
+
+    <a href="#event-list" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">I am coming! </a>
+
+ <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#show_profile/1" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+</script>
+
+<!-- close Private Individual Event-Code View -->
+
+<!-- Public View of Individual Private Event -->
+<script type="x-handlebars-template" id="pub-view-individual-event-template">
+
+  <div data-role="header" data-theme="b">
+     <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h1>Private Event</h1>
+  </div>
+
+
+    <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <h3> Event Name: {{eventInfo.attributes.title}} </h3>
+        <div><img src="{{eventInfo.attributes.event_picture_url}}" style = width: 200px, height = 200px/></div>
+
+      </div>
+  </div>
+
+  <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <div class="ui-block-a"><strong>Date: </strong> PRIVATE</div>
+        <div class="ui-block-b"><strong>Time: </strong> PRIVATE</div>
+      </div>
+  </div>
+    <div role="main" class="ui-content">
+      <h3> Description:  </h3>
+      <p> {{eventInfo.attributes.public_description}}   </p>
+
+    </div>
+
+    <a href="#message-host" data-role ="button" data-icon = "mail" data-iconpos = "right" data-theme = "b">CONTACT HOST for a code! </a>
+
+ <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#show_profile/1" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+  </script>
+
+<!-- close Public View of Individual Private Event -->
+
+ <!-- Create Event View  -->
+<script type="x-handlebars-template" id="new-event-template">
+
+  <div data-role="header" data-theme="b">
+     <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h2>Create New Event </h2>
+  </div>
+  <div data-role="content">
+    <div class="bold">
+      Event Name
+    </div>
+    <div class="margin-top-20">
+      <input id="new-title" type="text" placeholder="Event Name" />
+    </div>
+    <div class="margin-top-20 bold">
+       Description (public view)
+    </div>
+    <div class="margin-top-20">
+      <textarea id="new-public_description" type="text" placeholder="Short Description (public view)"></textarea>
+    </div>
+    <div class="margin-top-20 bold">
+      Description (private view)
+    </div>
+    <div class="margin-top-20">
+      <textarea id="new-private_description" type="text" placeholder="Detailed Description (private view)"></textarea>
+    </div>
+    <div class="margin-top-20 bold">
+      Date of Event
+    </div>
+    <div class="margin-top-20">
+      <input id="new-date" type="text" placeholder="mm/dd/yyyy" />
+    </div>
+    <div class="margin-top-20 bold">
+      Time
+    </div>
+    <div class="margin-top-20">
+      <input id="new-time" type="text"  placeholder="00:00" />
+    </div>
+    <div class="margin-top-20 bold">
+      Address
+    </div>
+    <div class="margin-top-20">
+      <input id="new-location" type="text"  placeholder="1234 Main Street SF CA " />
+    </div>
+    <div class="margin-top-20 bold">
+      Max # of guests (optional)
+    </div>
+    <div class="margin-top-20">
+      <input id="new-max_attendances" type="text"  placeholder="1000" />
+    </div>
+    <div class="margin-top-20 bold">
+      Picture URL (optional)
+    </div>
+    <div class="margin-top-20">
+      <input id="new-event_picture_url" type="text" placeholder="Picture URL" />
+    </div>
+
+    <div role="main" class="ui-content">
+      <form>
+        <fieldset data-role="controlgroup">
+          <legend>Is your event...</legend>
+          <input class = "new-publico" type="radio" name="private" id="radio-choice-1" value="choice-1" checked="checked">
+          <label for="radio-choice-1"> Private </label>
+
+          <input class = "new-publico" type="radio" name="public" id="radio-choice-2" value="choice-2">
+          <label for="radio-choice-2">Public</label>
+
+        </fieldset>
+      </form>
+      </div>
+    <div class="margin-top-20">
+
+      <a href="#allEvents" id = "submit-new-event" data-role="button" data-theme="b" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">Create my event!</a>
+      <p> Go to your PROFILE, to invite guests to this event </p>
+
+    </div>
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#show_profile/1" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+
+</script>
+  
+<!-- close Create Event View-->
+
+<!-- Edit Event View -->
+
+<!-- <div data-role="page" id="edit-event">
+  <div data-role="header" data-theme="b">
+    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h2>View / Edit Event </h2>
+  </div>
+  <div data-role="content">
+    <div class="bold">
+      Event Name
+    </div>
+    <div class="margin-top-20">
+      <input id="event_name" type="text" placeholder="Event Name" />
+    </div>
+    <div class="margin-top-20 bold">
+       Description (public view)
+    </div>
+    <div class="margin-top-20">
+      <textarea id="pub_desc" type="text" placeholder="Short Description (public view)"></textarea>
+    </div>
+    <div class="margin-top-20 bold">
+      Description (private view)
+    </div>
+    <div class="margin-top-20">
+      <textarea id="pub_desc" type="text" placeholder="Detailed Description (private view)"></textarea>
+    </div>
+    <div class="margin-top-20 bold">
+      Date of Event
+    </div>
+    <div class="margin-top-20">
+      <input id="date" type="text" placeholder="mm/dd/yyyy" />
+    </div>
+    <div class="margin-top-20 bold">
+      Time
+    </div>
+    <div class="margin-top-20">
+      <input id="time" type="text"  placeholder="00:00" />
+    </div>
+    <div class="margin-top-20 bold">
+      Max # of guests (optional)
+    </div>
+    <div class="margin-top-20">
+      <input id="guests" type="text"  placeholder="1000" />
+    </div>
+    <div class="margin-top-20 bold">
+      Picture (optional)
+    </div>
+    <div class="margin-top-20">
+      <input id="picture" type="text" placeholder="Picture" />
+    </div>
+
+    <div role="main" class="ui-content">
+    <form>
+      <fieldset data-role="controlgroup">
+        <legend>Is your event...</legend>
+        <input type="radio" name="private" id="radio-choice-1" value="choice-1" checked="checked">
+        <label for="radio-choice-1"> Private </label>
+
+        <input type="radio" name="public" id="radio-choice-2" value="choice-2">
+        <label for="radio-choice-2">Public</label>
+
+      </fieldset>
+    </form>
+    </div>
+    <div class="margin-top-20">
+
+    <a href="#user-profile
+       " data-role="button" data-theme="b" data-icon = "edit" data-iconpos = "right" data-theme = "b">Save Updated Event Details</a>
+      <p> Guests will see your this updated event in their RSVP App</p>
+
+      <a href="#invite-guests" data-role="button" data-theme="b" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">Invite Guests to this event</a>
+
+      <a href="#rsvpd-guests" data-role="button" data-theme="b" data-icon = "user" data-iconpos = "right" data-theme = "b">Who RSVP'ed for this event?</a>
+
+      <a href="#wants-invite" data-role="button" data-theme="b" data-icon = "alert" data-iconpos = "right" data-theme = "b">Who wants to be invited?</a>
+    </div>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#event-list" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#create-event" data-icon="plus">Create Event</a></li>
+        <li><a href="#user-profile" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div> -->
+<!-- close Edit Event View -->
+
+<!-- User Profile View -->
+
+<script type="x-handlebars-template" id="user-profile-template">
+
+  <div data-role="header" data-theme="b">
+    <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h2>Your User Profile </h2>
+  </div>
+  <div role="main" class="ui-content">
+    <div class="ui-grid-a">
+      <h3> User Information </h3>
+      <div class="ui-block-a"><strong>First Name : </strong>Sandi </div>
+      <div class="ui-block-b"><strong>Last Name: </strong> Ma</div>
+    </div>
+  </div>
+    <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+      <div class="ui-block-a"><strong>Email: </strong> sandima@sandima.com</div>
+      <div class="ui-block-b"><strong>Picture: </strong> N/A</div>
+    </div>
+
+    <div>  <a href="#user-profile
+       " data-role="button" data-theme="b" data-icon = "user" data-iconpos = "right" data-theme = "b">Save Updated User Information </a>
+    </div>
+  </div>
+
+  <div data-role="content">
+
+  <h3> Events Created by You </h3>
+  <ul id="event-list-items" data-role="listview">
+      <li>
+        <a href="#edit-event" data-icon="carat-r">
+          <img src="images/legs.jpg">
+          <h3> Name of Event </h3>
+          <p>Description text</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="#edit-event" data-icon="carat-r">
+          <img src="images/red_lips.jpg">
+          <h3> Name of Event </h3>
+          <p>Description text</p>
+        </a>
+      </li>
+      </ul>
+      </div>
+      <div data-role="content">
+        <h3> Events that you are attending </h3>
+        <ul id="event-list-items" data-role="listview">
+            <li>
+              <a href="#individual-event" data-icon="carat-r">
+                <img src="images/jason.jpg">
+                <h3> Name of Event </h3>
+                <p>Description text</p>
+              </a>
+            </li>
+
+            <li>
+              <a href="#individual-event" data-icon="carat-r">
+                <img src="images/michael.jpg">
+                <h3> Name of Event </h3>
+                <p>Description text</p>
+              </a>
+            </li>
+            </ul>
+
+          </div>
+
+
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#show_profile/1" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+ </script>
+<!-- close User Profile View  -->
+
+<!-- Invite Guests View -->
+
+<!-- <div data-role="page" id="invite-guests">
+  <div data-role="header" data-theme="b">
+   <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h2>Invite Guests </h2>
+  </div>
+  <div role="main" class="ui-content">
+    <div>
+      <h3> Event Name...... </h3>
+    </div>
+    </div>
+     <div data-role="content">
+      <h3> Invite Guests here: (comma separated emails)</h3>
+
+    <div class="margin-top-20">
+      <textarea type="text" placeholder="example1@email.com, example2@email.com, example3@gmail.com, example4@gmail.com"></textarea>
+    </div>
+
+    </div>
+
+    <div data-role="content">
+      <h3> Message to your guests: </h3>
+
+    <div class="margin-top-20">
+      <textarea type="text" placeholder="You are invited to the biggest bash of the century!  If you want more details, downloand the RSVP App and enter the code on the bottom of this email to RSVP to this event."></textarea>
+    </div>
+
+    <div>
+    <a href="#user-profile" data-role="button" data-theme="b" data-icon = "user" data-iconpos = "right" data-theme = "b">Invite Guests Now!</a>
+    </div>
+
+    </div>
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#event-list" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#create-event" data-icon="plus">Create Event</a></li>
+        <li><a href="#user-profile" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+<!-- close Invite Guests View  -->
+
+<!-- Send Message to Host View -->
+
+<!-- <div data-role="page" id="message-host">
+  <div data-role="header" data-theme="b">
+    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <h2>Message to Host </h2>
+  </div>
+  <div role="main" class="ui-content">
+    <div>
+      <h3> Event Name...... </h3>
+    </div>
+    </div>
+
+    <div data-role="content">
+      <h3> Message to the Host </h3>
+
+    <div class="margin-top-20">
+      <textarea type="text" placeholder="I would love to be a party of your awesome party!  Can you send me an invite with the code to this email address:  onetwothreefour@email.com" ></textarea>
+    </div>
+
+    <div>
+      <a href="#user-profile" data-role="button" data-theme="b" data-icon = "mail" data-iconpos = "right" data-theme = "b">Send Message to Host for Invite</a>
+    </div>
+    </div>
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li><a href="#event-list" data-icon="bullets">Event List</a></li>
+        <li><a href="#find-events" data-icon="search">Find Events</a></li>
+        <li><a href="#create-event" data-icon="plus">Create Event</a></li>
+        <li><a href="#user-profile" data-icon="user">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+<!-- close Send Message to Host View  -->
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- <script src="js/jqm-config.js"></script> -->
+<script src="lib/handlebars.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
+
