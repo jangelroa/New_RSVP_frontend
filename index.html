@@ -8,37 +8,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-    .smaller {
-      width:600px;
-      margin-left:auto;
-      margin-right:auto;
-    }
+  .smaller {
+    width:600px;
+    margin-left:auto;
+    margin-right:auto;
+  }
 
-    .margin-top-40 {
-      margin-top:40px;
-    }
+  .margin-top-40 {
+    margin-top:40px;
+  }
 
-    .bold {
-      font-weight:bold;
-    }
+  .bold {
+    font-weight:bold;
+  }
 
-    .margin-top-10 {
-      margin-top:10px;
-    }
+  .margin-top-10 {
+    margin-top:10px;
+  }
 
-     .margin-top-20 {
-      margin-top:20px;
-    }
+  .margin-top-20 {
+    margin-top:20px;
+  }
 
-    .txt-center {
-      text-align:center;
-    }
+  .txt-center {
+    text-align:center;
+  }
 
-    .txt-right {
-      text-align:right;
-    }
-  </style>
-  <body>
+  .txt-right {
+    text-align:right;
+  }
+</style>
+<body>
 
   <div id="container" class="container"></div>
 
@@ -54,24 +54,21 @@
 
   <div data-role="content">
 
-          <h3>Login Here</h3>
-            <ul data-role="listview"  data-inset="true">
+    <h3>Login Here</h3>
+      <ul data-role="listview"  data-inset="true">
 
-              <li><input id="login_username" type="text" placeholder="Username"/></li>
-              <li><input id="login_password" type="text" placeholder="Password"/></li>
-              <li>Look up your event with a CODE</li>
-              <li><input type="text" placeholder="Past your code here"/></li>
+        <li><input id="login_username" type="text" placeholder="Username"/></li>
+        <li><input id="login_password" type="password" placeholder="Password"/></li>
+        <li>Look up your event with a CODE</li>
+        <li><input type="text" placeholder="Past your code here"/></li>
 
-              <li> <a href="#" id = "login_submit" data-role="button" data-icon = "carat-r" data-iconpos = "right" data-theme="b">Login</a></li>
+        <li> <a href="#" id = "login_submit" data-role="button" data-icon = "carat-r" data-iconpos = "right" data-theme="b">Login</a></li>
+      </ul>
 
-
-            </ul>
-
-           <h3>Are you a New User?</h3>
-           <a href="#newUser"  data-role ="button" data-icon = "user" data-iconpos = "right">Sign Up - if you dare!</a>
-    </div>
-  <div data-role="footer" data-theme="b" data-position="fixed">
-
+     <h3>Are you a New User?</h3>
+     <a href="#newUser"  data-role ="button" data-icon = "user" data-iconpos = "right">Sign Up - if you dare!</a>
+  </div>
+  <div data-role="footer" data-theme="b">
     <h2>The fun is about to begin...</h2>
   </div>
 
@@ -218,7 +215,7 @@
 
   </div>
    {{/each}}
-<div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -234,8 +231,8 @@
 
 <!--RSVP Guest List Page-->
 <script type="x-handlebars-template" id="rspvd-guests-template">
-  <div data-role="header" data-theme="b">  
-  <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a> 
+  <div data-role="header" data-theme="b">
+  <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a>
     <h1>RSVPd Guest List</h1>
   </div>
   <div data-role="content">
@@ -260,7 +257,7 @@
       </li>
     </ul>
   </div>
-    <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -276,7 +273,7 @@
 <!--Wants Invite List Page-->
 <script type="x-handlebars-template" id="wants-invite-template">
   <div data-role="header" data-theme="b">
-     <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a> 
+     <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a>
     <h1>Wants an Invite</h1>
   </div>
   <div data-role="content">
@@ -301,7 +298,7 @@
       </li>
     </ul>
   </div>
-    <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -392,7 +389,7 @@
 
     <a href="#message-host" data-role ="button" data-icon = "mail" data-iconpos = "right" data-theme = "b">CONTACT HOST for a code! </a>
 
-   <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -402,7 +399,7 @@
       </ul>
     </div>
   </div>
-  </script>
+</script>
 
 <!-- close Public View of Individual Private Event -->
 
@@ -484,7 +481,7 @@
     </div>
   </div>
 
-   <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -577,7 +574,7 @@
     </div>
   </div>
 
-    <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -663,7 +660,7 @@
           </div>
 
 
-   <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
@@ -746,7 +743,7 @@
       <a href="#allEvents" data-role="button" data-theme="b" data-icon = "mail" data-iconpos = "right" data-theme = "b">Send Message to Host for Invite</a>
     </div>
     </div>
-   <div data-role="footer" data-position="fixed" data-theme="b">
+  <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
         <li><a href="#allEvents" data-icon="bullets">List</a></li>
