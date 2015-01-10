@@ -421,7 +421,7 @@ var Router = Backbone.Router.extend({
     "wants-invite":"wants_invite",
 
     // "login":"login",
-    "login_submit": "login_submit",
+    // "login_submit": "login_submit",
 
 
     "editUser/:id":"edit-user",

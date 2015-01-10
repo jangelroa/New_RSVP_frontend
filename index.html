@@ -49,7 +49,7 @@
 <script type="x-handlebars-template" id="login-template">
   <div data-role="header" data-theme="b">
 
-    <h1>Secret Events Login</h1>
+    <h1>Events Login</h1>
   </div>
 
   <div data-role="content">
@@ -70,9 +70,9 @@
            <h3>Are you a New User?</h3>
            <a href="#newUser"  data-role ="button" data-icon = "user" data-iconpos = "right">Sign Up - if you dare!</a>
     </div>
-  <div data-role="footer" data-theme="b">
+  <div data-role="footer" data-theme="b" data-position="fixed">
 
-    <h1>The fun is about to begin...</h1>
+    <h2>The fun is about to begin...</h2>
   </div>
 
   </script>
@@ -141,7 +141,7 @@
 
 <script type="x-handlebars-template" id="find-events-template">
   <div data-role="header" data-theme="b">
-    <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
     <h1>Find Your Event!</h1>
   </div>
 
@@ -183,9 +183,9 @@
   <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -200,7 +200,7 @@
 
 <div id="event-list">
   <div data-role="header" data-theme="b">
-    <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a>
+   <!-- <a href="#" data-role="button" data-icon="back" data-theme="a">Back</a> -->
     <h1>Event List</h1>
   </div>
    {{#each allEvents}}
@@ -218,25 +218,24 @@
 
   </div>
    {{/each}}
-  <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+<div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
   </div>
-</div>
 
 </script>
 <!--/Event List Page-->
 
 <!--RSVP Guest List Page-->
 <script type="x-handlebars-template" id="rspvd-guests-template">
-  <div data-role="header" data-theme="b">
-    <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a>
+  <div data-role="header" data-theme="b">  
+  <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a> 
     <h1>RSVPd Guest List</h1>
   </div>
   <div data-role="content">
@@ -261,12 +260,12 @@
       </li>
     </ul>
   </div>
-  <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+    <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -277,7 +276,7 @@
 <!--Wants Invite List Page-->
 <script type="x-handlebars-template" id="wants-invite-template">
   <div data-role="header" data-theme="b">
-    <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a>
+     <a href="#edit" data-role="button" data-icon="back" data-theme="a">Back</a> 
     <h1>Wants an Invite</h1>
   </div>
   <div data-role="content">
@@ -302,12 +301,12 @@
       </li>
     </ul>
   </div>
-  <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+    <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-       <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -319,7 +318,7 @@
 
 <script type="x-handlebars-template" id="individual-event-template">
   <div data-role="header" data-theme="b">
-    <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+    <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
     <h1>Yes, please come....</h1>
   </div>
 
@@ -346,12 +345,12 @@
 
     <a href="#allEvents" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">I am coming! </a>
 
- <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -366,7 +365,7 @@
 <script type="x-handlebars-template" id="pub-view-individual-event-template">
 
   <div data-role="header" data-theme="b">
-     <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+     <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
     <h1>Private Event</h1>
   </div>
 
@@ -393,12 +392,12 @@
 
     <a href="#message-host" data-role ="button" data-icon = "mail" data-iconpos = "right" data-theme = "b">CONTACT HOST for a code! </a>
 
- <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+   <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -411,7 +410,7 @@
 <script type="x-handlebars-template" id="new-event-template">
 
   <div data-role="header" data-theme="b">
-     <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
+   <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
     <h2>Create New Event </h2>
   </div>
   <div data-role="content">
@@ -485,12 +484,12 @@
     </div>
   </div>
 
-  <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+   <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -574,16 +573,16 @@
 
       <a href="#showRSVPs" data-role="button" data-theme="b" data-icon = "user" data-iconpos = "right" data-theme = "b">Who RSVPed for this event?</a>
 
-      <a href="#wants-invite" data-role="button" data-theme="b" data-icon = "alert" data-iconpos = "right" data-theme = "b">Who wants to be invited?</a>
+      <a href="#wants-invite" data-role="button" data-theme="a" data-icon = "alert" data-iconpos = "right" data-theme = "b">Who wants to be invited?</a>
     </div>
   </div>
 
-  <div data-role="footer" data-position="fixed">
-    <div data-role="navbar" >
+    <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -597,11 +596,13 @@
 <script type="x-handlebars-template" id="user-profile-template">
 
   <div data-role="header" data-theme="b">
-    <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a>
-    <h2>Your User Profile </h2>
+     <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
+
+    <h2>Profile </h2>
   </div>
   <div role="main" class="ui-content">
     <div class="ui-grid-a">
+    <a href="#" data-role="button" data-icon="power" data-theme="a">Log Out</a>
       <h3> User Information </h3>
       <div class="ui-block-a"><strong>First Name : </strong>Sandi </div>
       <div class="ui-block-b"><strong>Last Name: </strong> Ma</div>
@@ -662,12 +663,12 @@
           </div>
 
 
-  <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+   <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -709,11 +710,11 @@
 
     </div>
   <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
@@ -745,12 +746,12 @@
       <a href="#allEvents" data-role="button" data-theme="b" data-icon = "mail" data-iconpos = "right" data-theme = "b">Send Message to Host for Invite</a>
     </div>
     </div>
-  <div data-role="footer" data-position="fixed" data-theme="b">
-    <div data-role="navbar" >
+   <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="navbar">
       <ul>
-        <li><a href="#allEvents" data-icon="bullets">Event List</a></li>
-        <li><a href="#find-events" data-icon="search">Find Events</a></li>
-        <li><a href="#new" data-icon="plus">Create Event</a></li>
+        <li><a href="#allEvents" data-icon="bullets">List</a></li>
+        <li><a href="#find-events" data-icon="search">Find</a></li>
+        <li><a href="#new" data-icon="plus">Create</a></li>
         <li><a href="#show-profile" data-icon="user">Profile</a></li>
       </ul>
     </div>
