@@ -29,7 +29,7 @@ var newUserTemplate;
 var userProfileTemplate;
 
 //variables for urls
-var runningTheAppInHeroku = false;
+var runningTheAppInHeroku = true;
 var UserUrl;
 var UserUrlRoot;
 var EventsUrl;
