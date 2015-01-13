@@ -29,7 +29,7 @@ var newUserTemplate;
 var userProfileTemplate;
 
 //variables for urls
-var runningTheAppInHeroku = true;
+var runningTheAppInHeroku = false;
 var UserUrl;
 var UserUrlRoot;
 var EventsUrl;
@@ -260,21 +260,27 @@ var ShowIndividualEvent = Backbone.View.extend({
 // grab things from database using backbone (fetch is backbone specific)
     event_info.fetch({
       success: function() {
-        if (event_info.attributes.publico) {
-          var html = pubIndividualEventTemplate({
-            eventInfo: event_info
-          });
+        // if (event_info.attributes.is_public) {
+        //   var html = pubIndividualEventTemplate({
+        //     eventInfo: event_info
+        //   });
 
-          $("#container").html(html);
-          $("#container").trigger("create");
-        } else {
+        //   $("#container").html(html);
+        //   $("#container").trigger("create");
+        // } else {
+        //   var html = individualEventTemplate({
+        //     eventInfo: event_info
+        //   });
+
+        //   $("#container").html(html);
+        //   $("#container").trigger("create");
+        // }
           var html = individualEventTemplate({
             eventInfo: event_info
           });
 
           $("#container").html(html);
           $("#container").trigger("create");
-        }
       }
     });
   }
@@ -299,15 +305,20 @@ var NewEvent = Backbone.View.extend({
     var new_event = new Event();
 
     var eventInfo = {
-      title: $("#new-title").val(),
-      public_descripton : $("#new-public_description").val(),
-      private_descripton : $("#new-private_description").val(),
-      date : $("#new-date").val(),
-      time : $("#new-time").val(),
-      location : $("#new-location").val(),
-      max_attendances : $("#new-max_attendances").val(),
-      event_picture_url: $("#new-event_picture_url").val(),
-      publico : $(".new-publico").val(),
+      public_title: $("#new-title").val(),
+      private_title: $("#new-title").val(),
+      public_descripton: $("#new-public_description").val(),
+      private_descripton: $("#new-private_description").val(),
+      public_date: $("#new-date").val(),
+      private_date: $("#new-date").val(),
+      public_time: $("#new-time").val(),
+      private_time: $("#new-time").val(),
+      public_location: $("#new-location").val(),
+      private_location: $("#new-location").val(),
+      max_attendances: $("#new-max_attendances").val(),
+      public_picture: $("#new-event_picture_url").val(),
+      private_picture: $("#new-event_picture_url").val(),
+      is_public: $(".new-publico").val(),
     };
 
       new_event.save(eventInfo, {
