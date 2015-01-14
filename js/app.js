@@ -29,16 +29,16 @@ var newUserTemplate;
 var userProfileTemplate;
 
 //variables for urls
-var runningTheAppInHeroku = false;
+var runningTheAppInHeroku = true;
 var UserUrl;
 var UserUrlRoot;
 var EventsUrl;
 var EventsUrlRoot;
 if(runningTheAppInHeroku){
-  UserUrl = "https://ancient-chamber-4889.herokuapp.com/users.json";
-  UserUrlRoot = "https://ancient-chamber-4889.herokuapp.com/users";
-  EventsUrl = "https://ancient-chamber-4889.herokuapp.com/events.json";
-  EventsUrlRoot = "https://ancient-chamber-4889.herokuapp.com/events";
+  UserUrl = "https://frozen-garden-3489.herokuapp.com/users.json";
+  UserUrlRoot = "https://frozen-garden-3489.herokuapp.com/users";
+  EventsUrl = "https://frozen-garden-3489.herokuapp.com/events.json";
+  EventsUrlRoot = "https://frozen-garden-3489.herokuapp.com/events";
 } else {
   UserUrl = "http://localhost:3000/users.json";
   UserUrlRoot = "http://localhost:3000/users";

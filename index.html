@@ -12,6 +12,12 @@
     margin: 0px;
     padding: 0px;
   }
+
+  .small-text {
+    font-size: 0.8em;
+    float: right;
+  }
+
   .smaller {
     width:600px;
     margin-left:auto;
@@ -209,11 +215,16 @@
 
     <ul id="event-list-items" data-role="listview">
       <li>
+
         <a href="#show_event/{{attributes.id}}" data-icon="carat-r">
-          <img src="{{attributes.public_picture}}">
-          <h3> {{attributes.public_title}} </h3>
-          <p>{{attributes.public_description}}</p>
+
+            <img src="{{attributes.public_picture}}">
+            <span class="small-text"> {{#if attributes.is_public}} Public {{else}} Private {{/if}}</span>
+            <h3> {{attributes.public_title}} </h3>
+            <p>{{attributes.public_description}}</p>
+
         </a>
+
       </li>
     </ul
 
