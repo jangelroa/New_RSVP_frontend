@@ -283,6 +283,8 @@ var ShowIndividualEvent = Backbone.View.extend({
                         }
                       });
 
+        console.log("attendingEvent", attendingEvent);
+
         if (event_info.attributes.is_public) {
 
           var html = individualEventTemplate({
@@ -494,8 +496,9 @@ var Router = Backbone.Router.extend({
       success: function(data) {
 
         attendingEvent = !attendingEvent;
+        console.log("attendingEvent", attendingEvent)
 
-        router.navigate('show-profile', {trigger: true});
+        router.navigate('show_event/' + id, {trigger: true});
 
       },
       error: function(jqXHR, textStatus, errorThrown) {

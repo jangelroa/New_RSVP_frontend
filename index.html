@@ -330,7 +330,7 @@
 
 <!-- public_title, public_picture, public_location -->
 
-        <h3> Event: {{eventInfo.attributes.public_title}}</h3>
+        <h3> Event Name: {{eventInfo.attributes.public_title}}</h3>
         <div class="ui-block-a-not-used"><img src="{{eventInfo.attributes.public_picture}}" style = width: 600px, height = 200px/></div> <br>
         <div class="ui-block-b-not-used">Location: <strong>{{eventInfo.attributes.public_location}}</div>
         <br>
@@ -353,46 +353,18 @@
       </div>
   </div>
 
-  {{#if eventInfo.attributes.is_public}}
-
-            <!-- PUBLIC EVENT -->
-
-    <div role="main" class="ui-content">
-      <div class="ui-grid-a">
-
-<!-- public_date, public_time -->
-
-
-      </div>
-    </div>
 
 
 
 
 
 
-  {{else}}
-            <!-- PRIVATE EVENT -->
-
-    <div role="main" class="ui-content">
-      <div class="ui-grid-a">
-          <div class="ui-block-a">Date: <strong>PRIVATE</strong> </div>
-          <div class="ui-block-b">Time: <strong>PRIVATE</strong> </div>
-      </div>
-    </div>
-
-
-
-    <div role="main" class="ui-content">
-      <h3> Description: </h3>
-      <p> {{eventInfo.attributes.private_description}} </p>
-
-    </div>
 
 
 
 
-  {{/if}}
+
+
 
 
 
@@ -411,9 +383,9 @@
 
 </script>
 
-<!-- close Private Individual Event-Code View -->
+<!-- close Public Event View View -->
 
-<!-- Public View of Individual Private Event -->
+<!-- Private Event -->
 <script type="x-handlebars-template" id="private-event-template">
 
   <div data-role="header" data-theme="b">
@@ -421,28 +393,60 @@
     <h1>Private Event</h1>
   </div>
 
+  {{#if attendingEvent}}
 
     <div role="main" class="ui-content">
       <div class="ui-grid-a">
-        <h3> Event Name: {{eventInfo.attributes.title}} </h3>
-        <div><img src="{{eventInfo.attributes.public_picture}}" style = width: 200px, height = 200px/></div>
+        <h3> Event Name: {{eventInfo.attributes.private_title}}</h3>
+        <div class="ui-block-a-not-used"><img src="{{eventInfo.attributes.private_picture}}" style = width: 600px, height = 200px/></div> <br>
+        <div class="ui-block-b-not-used">Location: <strong>{{eventInfo.attributes.private_location}}</div>
+        <br>
+        <div class="ui-block-a-not-used">Date: <strong>{{eventInfo.attributes.private_date}}</strong> </div>
+        <br>
+        <div class="ui-block-b-not-used">Time: <strong>{{eventInfo.attributes.private_time}}</strong> </div>
+        <br>
+        <div class="ui-block-b-not-used">Price: <strong>{{eventInfo.attributes.private_price}}</strong> </div>
+        <h3>Private Description: </h3>
+        <p> {{eventInfo.attributes.private_description}} </p>
+        <br>
+
+        <a href="#rsvp/{{eventInfo.attributes.id}}" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">Change your RSVP</a>
 
       </div>
-  </div>
-
-  <div role="main" class="ui-content">
-      <div class="ui-grid-a">
-        <div class="ui-block-a"><strong>Date: </strong> PRIVATE</div>
-        <div class="ui-block-b"><strong>Time: </strong> PRIVATE</div>
-      </div>
-  </div>
-    <div role="main" class="ui-content">
-      <h3> Description:  </h3>
-      <p> {{eventInfo.attributes.public_description}}   </p>
-
     </div>
 
+
+
+  {{else}}
+
+
+
+    <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <h3> Event Name: {{eventInfo.attributes.public_title}}</h3>
+        <div class="ui-block-a-not-used"><img src="{{eventInfo.attributes.public_picture}}" style = width: 600px, height = 200px/></div> <br>
+        <div class="ui-block-b-not-used">Location: <strong>PRIVATE</div>
+        <br>
+        <div class="ui-block-a-not-used">Date: <strong>PRIVATE</strong> </div>
+
+        <h3>Public Description: </h3>
+        <p> {{eventInfo.attributes.public_description}} </p>
+        <br>
+
+        <div>Private Code:</div>
+        <input id="private-code" type="text" placeholder="Paste Private Code"/>
+
+        <a href="#rsvp/{{eventInfo.attributes.id}}" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">RSVP</a>
+
+
+
+      </div>
+    </div>
+
+
     <a href="#message-host" data-role ="button" data-icon = "mail" data-iconpos = "right" data-theme = "b">CONTACT HOST for a code! </a>
+
+  {{/if}}
 
   <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
@@ -456,7 +460,7 @@
   </div>
 </script>
 
-<!-- close Public View of Individual Private Event -->
+<!-- close Private Event -->
 
  <!-- Create Event View  -->
 <script type="x-handlebars-template" id="new-event-template">
