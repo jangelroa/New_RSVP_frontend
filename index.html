@@ -8,6 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+  div {
+    margin: 0px;
+    padding: 0px;
+  }
   .smaller {
     width:600px;
     margin-left:auto;
@@ -311,17 +315,13 @@
 </script>
 <!--close Wants Invite List Page-->
 
-<!-- Private Individual Event-Code View -->
+<!-- Public Event View -->
 
-<script type="x-handlebars-template" id="individual-event-template">
+<script type="x-handlebars-template" id="public-event-template">
 
   <div data-role="header" data-theme="b">
     <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
-    {{#if eventInfo.attributes.is_public}}
       <h1>Public Event</h1>
-    {{else}}
-      <h1>Private Event</h1>
-    {{/if}}
   </div>
 
 
@@ -333,20 +333,36 @@
         <h3> Event: {{eventInfo.attributes.public_title}}</h3>
         <div class="ui-block-a-not-used"><img src="{{eventInfo.attributes.public_picture}}" style = width: 600px, height = 200px/></div> <br>
         <div class="ui-block-b-not-used">Location: <strong>{{eventInfo.attributes.public_location}}</div>
+        <br>
+        <div class="ui-block-a-not-used">Date: <strong>{{eventInfo.attributes.public_date}}</strong> </div>
+        <br>
+        <div class="ui-block-b-not-used">Time: <strong>{{eventInfo.attributes.public_time}}</strong> </div>
+        <br>
+        <div class="ui-block-b-not-used">Price: <strong>{{eventInfo.attributes.public_price}}</strong> </div>
+        <h3> Description: </h3>
+        <p> {{eventInfo.attributes.public_description}} </p>
+        <br>
+
+
+
+        {{#if attendingEvent}}
+          <a href="#rsvp/{{eventInfo.attributes.id}}" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">Change your RSVP</a>
+        {{else}}
+          <a href="#rsvp/{{eventInfo.attributes.id}}" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">RSVP</a>
+        {{/if}}
       </div>
   </div>
 
   {{#if eventInfo.attributes.is_public}}
 
-            <!-- PRIVATE EVENT -->
+            <!-- PUBLIC EVENT -->
 
     <div role="main" class="ui-content">
       <div class="ui-grid-a">
 
 <!-- public_date, public_time -->
 
-          <div class="ui-block-a"><strong>Date: {{eventInfo.attributes.public_date}}</strong> </div>
-          <div class="ui-block-b"><strong>Time: {{eventInfo.attributes.public_time}}</strong> </div>
+
       </div>
     </div>
 
@@ -367,6 +383,12 @@
 
 
 
+    <div role="main" class="ui-content">
+      <h3> Description: </h3>
+      <p> {{eventInfo.attributes.private_description}} </p>
+
+    </div>
+
 
 
 
@@ -374,13 +396,6 @@
 
 
 
-    <div role="main" class="ui-content">
-      <h3> Description: </h3>
-      <p> {{eventInfo.attributes.private_description}} </p>
-
-    </div>
-
-    <a href="#allEvents" data-role ="button" data-icon = "carat-r" data-iconpos = "right" data-theme = "b">I am coming! </a>
 
   <div data-role="footer" data-position="fixed" data-theme="b">
     <div data-role="navbar">
@@ -399,7 +414,7 @@
 <!-- close Private Individual Event-Code View -->
 
 <!-- Public View of Individual Private Event -->
-<script type="x-handlebars-template" id="pub-view-individual-event-template">
+<script type="x-handlebars-template" id="private-event-template">
 
   <div data-role="header" data-theme="b">
      <!-- <a href="#allEvents" data-role="button" data-icon="back" data-theme="a">Back</a> -->
